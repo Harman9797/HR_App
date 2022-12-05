@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+<div class="w3-dropdown w3-light-grey w3-bar w3-card-4" style="width:100%">
+        <style>
+
+/* Style the active class, and buttons on mouse-over */
+.active, .btn:hover {
+  background-color: #4227d8;
+  color: white;
+}
+
+th {
+    text-align: left;
+    padding-left: 0.8em;
+}
+td{
+    padding-left: 0.8em;
+}
+</style>
+    <script>
+        function myFunction() {
+            document.getElementById("myForm").reset();
+        }
+    </script>
+
+    <h3 class="w3-bar-item w3-black">
+        <a href="index.php" class="w3-bar-item w3-black">CCPS 610 Assignment</a>
+    </h3>
+
+    <!-- Task 1 Related Activities-->
+    <div class="w3-red w3-card-4 w3-container">
+        <p>Employee Main Menu</p>
+    </div>
+    <a href="employee_hiring_form.php" class="w3-bar-item w3-button">&emsp;Employee Hiring Form</a>
+    <a href="update_employee_records.php" class="w3-bar-item w3-button active">&emsp;Update Employee Records</a>
+
+    <!-- Task 2 Related Activities-->
+    <!--TODO: link buttons to appropriate files-->
+    <div class="w3-container w3-red w3-card-4">
+        <p>Jobs Main Menu</p>
+    </div>
+    <a href="identify_job_description.php" class="w3-bar-item w3-button">&emsp;Identify Job Description</a>
+    <a href="changejob.php" class="w3-bar-item w3-button">&emsp;Change Job Description</a>
+    <a href="create.php" class="w3-bar-item w3-button">&emsp;Create New Job</a>
+
+</div>
+
+<div class="w3-container w3-card-4" style="margin-left:0%">
+    <div class="w3-container w3-card-4 w3-black">
+        <h1>List or Update an Employee Record </h1>
+    </div>
+    <table style="margin-left:2em;">
+        <tr>
+            <th>Employee_id</th>
+            <th>first_name</th>
+            <th>last_name</th>
+            <th>email</th>
+            <th>phone_numeric</th>
+            <th>hire_date</th>
+            <th>job_id</th>
+            <th>salary</th>
+            <th>manager_id</th>
+            <th>department_id</th>
+        </tr>
+        {% for x in employees %}
+            <tr>
+                <td>{{x.employee_id}}</td>
+                <td>{{x.first_name}}</td>
+                <td>{{x.last_name}}</td>
+                <td>{{x.email}}</td>
+                <td>{{x.phone_NUMERIC}}</td>
+                <td>{{x.hire_date}}</td>
+                <td>{{x.job_id}}</td>
+                <td>{{x.salary}}</td>
+                <td>{{x.manager_id}}</td>
+                <td>{{x.department_id}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+<br>
+    
+    <form method="post" action="/updateEmployee">
+        <table width="700" align="left" border="0" cellspacing="1" cellpadding="2">
+            <tr>
+                <th width="220", align="right">Where Employee ID =</th>
+                <td><input name="employee_id" type="text" id="employee_id"></td>
+            </tr>
+            <tr>
+                <th align="right">Update</th>
+            </tr>
+            <tr>
+                <th align="right">Salary =</th>
+                <td><input name="salary" type="text" id="salary"></td>
+            </tr>
+            <tr>
+                <th align="right">Phone Number =</th>
+                <td><input name="phone_NUMERIC" type="text" id="phone_NUMERIC"></td>
+            </tr>
+            <tr>
+                <th align="right">Email =</th>
+                <td><input name="email" type="text" id="email"></td>
+            </tr>
+            <tr>
+                <td width="100"> </td>
+                <td>
+                    <input name="update2" type="submit" id="update2" value="Update">
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+</body>
+</html>
