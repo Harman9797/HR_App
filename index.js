@@ -87,7 +87,7 @@ app.post('/updateEmployee', async (req, res) => {
     var connection = getConnection();
     //res.setHeader('Content-Type', 'application/json');
     connection.beginTransaction(function(err) {
-        if (err) { throw err; }
+        //if (err) { throw err; }
         if (data.salary){
             connection.query(`UPDATE hr_employees SET salary = ${data.salary} WHERE employee_id = ${data.employee_id};`,
             function (error, results, fields) {    
@@ -109,7 +109,7 @@ app.post('/updateEmployee', async (req, res) => {
         connection.commit(function(err) {
             if (err) {
             return connection.rollback(function() {
-                throw err;
+               // throw err;
             });
             }
             console.log('success!');
@@ -117,6 +117,9 @@ app.post('/updateEmployee', async (req, res) => {
     })
     var employeeData = await getRsp('http://localhost:4000/listAllEmployees', 'GET');
     employeeData = JSON.parse(employeeData);
+    employeeData.forEach(element => {
+        element.hire_date = element.hire_date.substring(0, 10)
+    });
     res.render('update_employee_records', { layout: false, employees : employeeData})
 })
 

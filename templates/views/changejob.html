@@ -1,57 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<body>
-<div class="w3-dropdown w3-light-grey w3-bar w3-card-4" style="width:100%">
-    <style>
-
-/* Style the active class, and buttons on mouse-over */
-.active, .btn:hover {
-  background-color: #4227d8;
-  color: white;
-}
-th {
+{% extends 'index.html' %}
+<style>
+    th {
     text-align: left;
-    padding-left: 1.5em;
+    padding-left: 3em;
 }
 td{
-    padding-left: 1.5em;
+    padding-left: 3em;
 }
 </style>
-	<script>
-        $( function() {
-            $( "#datepicker" ).datepicker();
-        } );
-
-        function myFunction() {
-            document.getElementById("myForm").reset();
-        }
-    </script>
-
-    <h3 class="w3-bar-item w3-black">
-        <a href="index.php" class="w3-bar-item w3-black">CCPS 610 Assignment</a>
-    </h3>
-
-    <!-- Task 1 Related Activities-->
-    <div class="w3-red w3-card-4 w3-container">
-        <p>Employee Main Menu</p>
-    </div>
-    <a href="employee_hiring_form.php" class="w3-bar-item w3-button">&emsp;Employee Hiring Form</a>
-    <a href="update_employee_records.php" class="w3-bar-item w3-button">&emsp;Update Employee Records</a>
-
-    <!-- Task 2 Related Activities-->
-    <!--TODO: link buttons to appropriate files-->
-    <div class="w3-container w3-red w3-card-4">
-        <p>Jobs Main Menu</p>
-    </div>
-    <a href="identify_job_description.php" class="w3-bar-item w3-button">&emsp;Identify Job Description</a>
-    <a href="changejob.php" class="w3-bar-item w3-button active">&emsp;Change Job Description</a>
-    <a href="create.php" class="w3-bar-item w3-button">&emsp;Create New Job</a>
-
-</div>
-
-
+{% block content %}
+    {% parent %}
 <div class="w3-container w3-card-4" style="margin-left:0%">
     <div class="w3-container w3-card-4 w3-black">
         <h1>Job Description </h1>
@@ -102,5 +60,4 @@ td{
         </table>
     </form>
 </div>
-</body>
-</html>
+{% endblock %}

@@ -2,7 +2,17 @@
 <html lang="en">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+    th {
+    text-align: left;
+    padding-left: 0.8em;
+}
+td{
+    padding-left: 0.8em;
+}
+</style>
 <body>
+    {% block content %}
 <div class="w3-dropdown w3-black w3-bar w3-card-4" style="width:100%">
     <script>
         $( function() {
@@ -33,7 +43,8 @@
     <a href="/identify_job_description" class="w3-bar-item w3-button">&emsp;Identify Job Description</a>
     <a href="/changejob" class="w3-bar-item w3-button">&emsp;Change Job Description</a>
     <a href="/createjob" class="w3-bar-item w3-button">&emsp;Create New Job</a>
-
+    
 </div>
+{% endblock %}
 </body>
 </html>
